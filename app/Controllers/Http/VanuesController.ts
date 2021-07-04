@@ -4,7 +4,8 @@ import { Role } from 'App/Enums/Role';
 import Vanue from "App/Models/Vanue";
 import CreateVanueValidator from 'App/Validators/CreateVanueValidator';
 import UpdateVanueValidator from 'App/Validators/UpdateVanueValidator';
-
+import Env from '@ioc:Adonis/Core/Env'
+import Url from 'url-parse'
 export default class VanuesController {
     /**
      * @swagger
@@ -30,6 +31,9 @@ export default class VanuesController {
     */
     public async index({ response, request }: HttpContextContract) {
         try {
+
+            const CLEARDB_DATABASE_URL = new Url(Env.get('CLEARDB_DATABASE_URL'))
+            console.log(CLEARDB_DATABASE_URL.host, CLEARDB_DATABASE_URL.pathname.substr(1))
             const page = request.qs().page ? request.qs().page : 1
             const limit = request.qs().limit ? request.qs().limit : 10
 
