@@ -1,4 +1,4 @@
-import Mail from '@ioc:Adonis/Addons/Mail';
+// import Mail from '@ioc:Adonis/Addons/Mail';
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import User from 'App/Models/User';
 import RegisterValidator from 'App/Validators/RegisterValidator';
