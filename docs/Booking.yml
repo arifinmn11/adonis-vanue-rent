@@ -1,0 +1,106 @@
+
+/api/v1/bookings:
+  get:
+    tags:
+      - Bookings
+    summary: Sample Get Bookings
+    parameters:
+      - name: page
+        required: false
+        in: query
+        type: integer
+      - name: limit
+        required: false
+        in: query
+        type: integer
+    responses:
+      '200':
+        description: success!
+      '500':
+        description: internal server error!
+  
+/api/v1/bookings:
+  post:
+    tags:
+      - Bookings
+    summary: Sample Api Crate Booking
+    security:
+      - bearerAuth: []
+    parameters:
+      - name: name
+        required: true
+        in: body
+        type: string
+      - name: playDateEnd
+        required: true
+        in: body
+        type: string
+      - name: playDateStart
+        required: true
+        in: body
+        type: string
+      - name: fieldId
+        required: true
+        in: body
+        type: string
+    responses: 
+      '200':
+        description: success
+      '401':
+        description: unauthorized
+      '404':
+        description: bad request
+
+/api/v1/bookings/{id}:
+  get:
+    tags:
+      - Bookings
+    summary: Sample Api Booking Find By Id
+    parameters:
+      - name : id
+        in: path
+        required: true
+    responses: 
+      '201':
+        description: success
+      '404':
+        description: bad request
+ 
+/api/v1/bookings/{id}/join:
+  put:
+    tags:
+      - Bookings
+    summary: Sample Api Join to Booking
+    security:
+      - bearerAuth: []
+    parameters:
+      - name : id
+        in: path
+        required: true
+    responses: 
+       '201':
+          description: success
+       '401':
+          description: unauthorized
+       '404':
+          description: bad request
+
+/api/v1/bookings/{id}/unjoin:
+  put:
+    tags:
+      - Bookings
+    summary: Sample Api Unjoin to Booking
+    security:
+      - bearerAuth: []
+    parameters:
+      - name : id
+        in: path
+        required: true
+    responses: 
+      '200':
+         description: success
+      '401':
+         description: unauthorized
+      '404':
+         description: bad request
+  

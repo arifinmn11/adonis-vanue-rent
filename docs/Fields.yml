@@ -1,0 +1,116 @@
+
+/api/v1/fields:
+    get:
+        tags:
+            - Fields
+        summary: Sample Api Get Fields
+        parameters:
+            - name: page
+              required: false
+              in: query
+              type: integer
+            - name: limit
+              required: false
+              in: query
+              type: integer
+        responses: 
+            '200':
+                description: get data fields
+            '500':
+                description: internal server 
+    
+/api/v1/fields:
+    post:
+        tags:
+            - Fields
+        summary: Sample Api Create Field
+        security:
+            - bearerAuth: []
+        parameters:
+            - name: name
+              required: true
+              in: body
+              type: string
+            - name: type
+              required: true
+              in: body
+              schema:
+                type: string
+                enum: [soccer,minisoccer,futsal,basketball,volleyball]
+            - name: vanueId
+              required: true
+              in: body
+              type: integer
+        responses: 
+            '201':
+                description: success
+            '400':
+                description: bad request
+            '401':
+                description: unauthorized
+   
+/api/v1/fields/{id}:
+    get:
+        tags:
+            - Fields
+        summary: Sample Api Find By Id
+        parameters:
+            - name : id
+              in: path
+              required: true
+        responses: 
+             '201':
+                 description: success
+             '404':
+                 description: bad request
+   
+
+/api/v1/fields/{id}:
+    put:
+        tags:
+            - Fields
+        summary: Sample Api Update
+        security:
+            - bearerAuth: []
+        parameters:
+            - name : id
+              in: path
+              required: true
+            - name : name
+              in: body
+              required: true
+            - name: type
+              required: true
+              in: body
+              schema:
+                type: string
+                enum: [soccer,minisoccer,futsal,basketball,volleyball]
+            - name : vanueId
+              in: body
+              required: true
+        responses: 
+             '201':
+                 description: success
+             '404':
+                 description: bad request
+   
+/api/v1/fields/{id}:
+    delete:
+        tags:
+            - Fields
+        summary: Sample Api Delete By Id
+        security:
+            - bearerAuth: []
+        parameters:
+            - name : id
+              in: path
+              required: true
+        responses: 
+            '200':
+               description: success
+            '401':
+               description: unauthorized
+            '404':
+               description: bad request
+
+    

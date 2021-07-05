@@ -1,0 +1,21 @@
+/api/v1/schedules:
+    get:
+        tags:
+            - Schedules
+        summary: Sample Api Get Schedules By UserId
+        parameters:
+            - name: page
+              required: false
+              in: query
+              type: integer
+            - name: limit
+              required: false
+              in: query
+              type: integer
+        security:
+            - bearerAuth: []
+        responses: 
+            '200':
+                description: get data schedules! 
+            '404':
+                description: bad request!
