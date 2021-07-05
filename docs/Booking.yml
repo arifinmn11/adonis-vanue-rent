@@ -78,12 +78,12 @@
         in: path
         required: true
     responses: 
-       '201':
-          description: success
-       '401':
-          description: unauthorized
-       '404':
-          description: bad request
+      '201':
+        description: success
+      '401':
+        description: unauthorized
+      '404':
+        description: bad request
 
 /api/v1/bookings/{id}/unjoin:
   put:
@@ -98,9 +98,9 @@
         required: true
     responses: 
       '200':
-         description: success
+        description: success
       '401':
-         description: unauthorized
+        description: unauthorized
       '404':
-         description: bad request
+        description: bad request
   
