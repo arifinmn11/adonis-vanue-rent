@@ -1,4 +1,4 @@
-// import Mail from '@ioc:Adonis/Addons/Mail';
+import Mail from '@ioc:Adonis/Addons/Mail';
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import User from 'App/Models/User';
 import RegisterValidator from 'App/Validators/RegisterValidator';
@@ -84,16 +84,16 @@ export default class AuthController {
                 user_id: entity.id
             })
 
-            // await Mail.send((message) => {
-            //     message
-            //         .from('admin@todoapi.com')
-            //         .to(validationLogin.email)
-            //         .subject('Welcome Onboard!')
-            //         .htmlView('emails/otp_verification', { otp_code })
-            // })
+            await Mail.send((message) => {
+                message
+                    .from('admin@todoapi.com')
+                    .to(validationLogin.email)
+                    .subject('Welcome Onboard!')
+                    .htmlView('emails/otp_verification', { otp_code })
+            })
             return response.created({ message: 'login success!', data: entity })
         } catch (error) {
-            return response.badRequest({ message: 'bad request!', error: error})
+            return response.badRequest({ message: 'bad request!', error: error })
         }
     }
 
