@@ -1,0 +1,98 @@
+/api/v1/vanues:
+    get:
+        tags:
+            - Vanues
+        summary: Sample Api Get Vanues
+        parameters:
+            - name: page
+              required: false
+              in: query
+              type: integer
+            - name: limit
+              required: false
+              in: query
+              type: integer
+        responses: 
+            '200':
+                description: get data vanues
+            '500':
+                description: internal server error
+    post:
+        tags:
+            - Vanues
+        summary: Sample Api Crate Vanues
+        security:
+            - bearerAuth: []
+        parameters:
+            - name: name
+              required: true
+              in: body
+              type: string
+            - name: phone
+              required: true
+              in: body
+              type: string
+        responses: 
+            '200':
+                description: success
+            '401':
+                description: unauthorized
+            '404':
+                description: bad request
+/api/v1/vanues/{id}:
+    get:
+        tags:
+            - Vanues
+        summary: Sample Api Find Vanue By Id
+        parameters:
+            - name : id
+              in: path
+              required: true
+        responses: 
+             '201':
+                 description: success
+             '404':
+                 description: bad request
+    put:
+        tags:
+            - Vanues
+        summary: Sample Api Update Vanue By Id
+        security:
+            - bearerAuth: []
+        parameters:
+            - name : id
+              in: path
+              required: true
+            - name: name
+              required: true
+              in: body
+              type: string
+            - name: phone
+              required: true
+              in: body
+              type: string
+        responses: 
+             '200':
+                description: success
+             '401':
+                description: unauthorized
+             '404':
+                description: bad request
+    delete:
+        tags:
+            - Vanues
+        summary: Sample Api Delete Vanues By Id
+        security:
+            - bearerAuth: []
+        parameters:
+            - name : id
+              in: path
+              required: true
+        responses: 
+             '200':
+                description: success
+             '401':
+                description: unauthorized
+             '404':
+                description: bad request
+

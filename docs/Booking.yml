@@ -18,8 +18,6 @@
         description: success!
       '500':
         description: internal server error!
-  
-/api/v1/bookings:
   post:
     tags:
       - Bookings
@@ -103,4 +101,3 @@
         description: unauthorized
       '404':
         description: bad request
-  
