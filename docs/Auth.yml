@@ -19,53 +19,53 @@
         description: bad request
 
 /api/v1/register:
-post:
-  tags:
-    - Authetication
-  summary: Sample Api Register
-  produces:
-    - application/json
-  parameters:   
-    - name: name
-      required: true
-      in: body
-      type: string   
-    - name: email
-      required: true
-      in: body
-      type: string
-    - name: password
-      required: true
-      in: body
-      type: string
-    - name: string
-      required: false
-      in: body
-      schema:
+  post:
+    tags:
+      - Authetication
+    summary: Sample Api Register
+    produces:
+      - application/json
+    parameters:   
+      - name: name
+        required: true
+        in: body
+        type: string   
+      - name: email
+        required: true
+        in: body
         type: string
-        enum: [owner,user]
-  responses: 
-    '200':
-      description: success
-    '400':
-      description: bad request
+      - name: password
+        required: true
+        in: body
+        type: string
+      - name: string
+        required: false
+        in: body
+        schema:
+          type: string
+          enum: [owner,user]
+    responses: 
+      '200':
+        description: success
+      '400':
+        description: bad request
 
 /api/v1/otp_code:
-post:
-  tags:
-    - Authetication
-  summary: Sample Api Verify Account
-  parameters:
-    - name: email
-      required: true
-      in: body
-      type: string
-    - name: otp_code
-      required: true
-      in: body
-      type: integer
-  responses: 
-    '200':
-      description: status verify is true!
-    '404':
-      description: bad request!
+  post:
+    tags:
+      - Authetication
+    summary: Sample Api Verify Account
+    parameters:
+      - name: email
+        required: true
+        in: body
+        type: string
+      - name: otp_code
+        required: true
+        in: body
+        type: integer
+    responses: 
+      '200':
+        description: status verify is true!
+      '404':
+        description: bad request!
