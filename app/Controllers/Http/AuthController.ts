@@ -93,7 +93,7 @@ export default class AuthController {
             // })
             return response.created({ message: 'login success!', data: entity })
         } catch (error) {
-            return response.badRequest({ message: 'bad request!', error: error.messages })
+            return response.badRequest({ message: 'bad request!', error: error})
         }
     }
 
