@@ -18,6 +18,7 @@ Reservations are rental schedules or main user schedules in a particular field/p
 
 # Swagger
 <http://localhost:3333/docs>
+![Swagger image](https://github.com/arifinmn11/adonis-vanue-rent/blob/master/swagger.png)
 
 # Getting started
 
